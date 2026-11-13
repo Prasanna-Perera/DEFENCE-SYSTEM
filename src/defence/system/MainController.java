@@ -78,7 +78,7 @@ public class MainController extends javax.swing.JFrame {
 
         jCheckBox2.setText("Area Clear");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Defence", "Helicopter", "Tank", "Submarin" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Defence", "Helicopter", "Tank", "Submarine" }));
         jComboBox1.setToolTipText("");
 
         jSlider1.setMajorTickSpacing(20);
@@ -184,12 +184,26 @@ public class MainController extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String msg = jTextArea3.getText().trim(); // මැසේජ් එක ටයිප් කරන Text Area එක (ඔබේ ෆෝම් එකේ හැටියට අංකය වෙනස් විය හැක)
+                    
+        String msg = jTextArea3.getText().trim();
         if (!msg.isEmpty() && observer != null) {
-            observer.broadcast(msg); // Observer හරහා හැම යුනිට් එකකටම බ්‍රෝඩ්කාස්ට් කරයි
-            jTextArea1.append("Main: " + msg + "\n"); // Main එකේ ලොග් එක පෙන්වන තැනට එකතු වේ
-            jTextArea3.setText(""); // යැවූ පසු ඉන්පුට් බොක්ස් එක හිස් කරයි
-        }
+            if (jCheckBox1.isSelected()) {
+                String selectedUnit = jComboBox1.getSelectedItem().toString(); 
+                
+                if (!selectedUnit.equals("Select Defence")) {
+                    observer.sendPrivate(selectedUnit, msg);
+                    jTextArea1.append("Private to " + selectedUnit + ": " + msg + "\n");
+                    jTextArea3.setText("");
+                } else {
+                    jTextArea1.append("Please select a unit from ComboBox!\n");
+                }
+            } 
+            else {
+                observer.broadcast(msg);
+                jTextArea1.append("Main: " + msg + "\n");
+                jTextArea3.setText("");
+            }
+        }        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -248,8 +262,8 @@ public class MainController extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea4;
     // End of variables declaration//GEN-END:variables
 
-    void receiveFromUnit(String from, String msg) {
-        jTextArea1.append(from + ": " + msg + "\n");
+    void receiveFromUnit(String me, String msg) {
+        jTextArea1.append(me + ": " + msg + "\n");
     }
 
 

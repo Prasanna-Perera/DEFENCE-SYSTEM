@@ -192,7 +192,7 @@
             <StringItem index="0" value="Select Defence"/>
             <StringItem index="1" value="Helicopter"/>
             <StringItem index="2" value="Tank"/>
-            <StringItem index="3" value="Submarin"/>
+            <StringItem index="3" value="Submarine"/>
           </StringArray>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>

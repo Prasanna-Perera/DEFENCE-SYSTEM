@@ -95,6 +95,11 @@ public class Helicopter extends SuperDefence {
         });
 
         jButton2.setText("Send");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
@@ -191,6 +196,15 @@ public class Helicopter extends SuperDefence {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String msg = jTextField1.getText().trim();
+        if (!msg.isEmpty() && getObserver() != null) {
+            getObserver().toMain("Helicopter", msg);
+        } 
+            jTextArea2.append("Me: " + msg + "\n");
+            jTextField1.setText("");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -247,6 +261,6 @@ public class Helicopter extends SuperDefence {
 
     @Override
     public void update(String msg) {
-        jTextArea2.append("Main: " + msg + "\n");
+        jTextArea2.append("Main_C: " + msg + "\n");
     }
 }
