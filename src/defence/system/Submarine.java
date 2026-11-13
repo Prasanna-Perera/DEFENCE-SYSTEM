@@ -72,6 +72,7 @@ public class Submarine extends SuperDefence {
         jSlider1.setOrientation(javax.swing.JSlider.VERTICAL);
         jSlider1.setPaintLabels(true);
         jSlider1.setPaintTicks(true);
+        jSlider1.setValue(100);
 
         jButton4.setText("Tomahawk Missile");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -111,6 +112,7 @@ public class Submarine extends SuperDefence {
         jSlider2.setOrientation(javax.swing.JSlider.VERTICAL);
         jSlider2.setPaintLabels(true);
         jSlider2.setPaintTicks(true);
+        jSlider2.setValue(100);
 
         jLabel4.setText("Energy");
 
@@ -290,4 +292,9 @@ public class Submarine extends SuperDefence {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(String msg) {
+        jTextArea2.append("Main: " + msg + "\n");
+    }
 }

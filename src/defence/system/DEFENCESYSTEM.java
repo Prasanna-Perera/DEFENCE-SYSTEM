@@ -15,10 +15,22 @@ public class DEFENCESYSTEM {
      */
     public static void main(String[] args) {
         MainController mainController = new MainController();
+        Observer observer = new Observer();
         Helicopter helicopter= new Helicopter();
         Tank tank = new Tank();
         Submarine submarine = new Submarine();
          
+        observer.setMain(mainController);
+        mainController.setObserver(observer);
+        
+        helicopter.setObserver(observer);
+        tank.setObserver(observer);
+        submarine.setObserver(observer);
+        
+        observer.add(helicopter);
+        observer.add(tank);
+        observer.add(submarine);
+        
         mainController.setVisible(true);
         helicopter.setVisible(true);
         tank.setVisible(true);
