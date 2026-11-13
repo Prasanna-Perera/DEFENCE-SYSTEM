@@ -8,6 +8,6 @@ package defence.system;
  *
  * @author ASUS ROG
  */
-public class Tools extends javax.swing.JFrame {
-    
+public class SuperDefence extends javax.swing.JFrame {
+
 }

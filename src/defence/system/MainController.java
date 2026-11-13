@@ -15,6 +15,8 @@ public class MainController extends javax.swing.JFrame {
      */
     public MainController() {
         initComponents();
+        setSize(632, 410);
+        setLocation(20, 20);
     }
 
     /**
@@ -44,6 +46,7 @@ public class MainController extends javax.swing.JFrame {
         jTextArea3 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jButton1.setText("Collect Information");
 
@@ -156,7 +159,7 @@ public class MainController extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3)
                     .addComponent(jScrollPane1))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -196,6 +199,7 @@ public class MainController extends javax.swing.JFrame {
             }
         });
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
