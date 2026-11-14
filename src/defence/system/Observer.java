@@ -47,5 +47,12 @@ public void add(Observable o) {
             main_c.receiveFromUnit(from, msg);
         }
     }
+
+    void sendSliderValue(int val) {
+        for (int i = 0; i < txt.length; i++) {
+            SuperDefence defence = (SuperDefence) txt[i];
+            defence.setSliderValue(val);
+        }
+    }
 }
 

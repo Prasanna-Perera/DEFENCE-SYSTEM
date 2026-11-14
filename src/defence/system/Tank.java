@@ -51,6 +51,7 @@ public class Tank extends SuperDefence {
         jLabel1.setText("Area Not Cleared");
 
         jButton1.setText("Shoot");
+        jButton1.setEnabled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -58,6 +59,7 @@ public class Tank extends SuperDefence {
         });
 
         jButton3.setText("Rotate Shooting");
+        jButton3.setEnabled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -72,6 +74,7 @@ public class Tank extends SuperDefence {
         jSlider1.setValue(100);
 
         jButton4.setText("Redar Operation");
+        jButton4.setEnabled(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -103,6 +106,7 @@ public class Tank extends SuperDefence {
         jScrollPane2.setViewportView(jTextArea2);
 
         jButton5.setText("Missile Operation");
+        jButton5.setEnabled(false);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -176,12 +180,12 @@ public class Tank extends SuperDefence {
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jCheckBox1))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
+                .addGap(61, 61, 61))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -278,5 +282,11 @@ public class Tank extends SuperDefence {
     @Override
     public void update(String msg) {
         jTextArea2.append("Main_C: " + msg + "\n");
+    }
+    @Override
+    public void setSliderValue(int value) {
+        // පිළිවෙළ: [උඩ වම්, උඩ දකුණු, යට වම්, යට දකුණු]
+        javax.swing.JButton[] tankBtns = {jButton1, jButton5, jButton4, jButton3};
+        updateButtons(tankBtns, jCheckBox1.isSelected(), value);
     }
 }

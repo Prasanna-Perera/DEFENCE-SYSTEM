@@ -4,6 +4,8 @@
  */
 package defence.system;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author ASUS ROG
@@ -17,5 +19,14 @@ public abstract class SuperDefence extends javax.swing.JFrame implements Observa
     public Observer getObserver() {
         return observer;
     }
-    
+    public void setSliderValue(int value) {
+    }
+    public void updateButtons(JButton[] btns, boolean on, int val) {
+        for (int i = 0; i < btns.length; i++) {
+            if (btns[i] != null) {
+                int limit = (i + 1) * 25;
+                btns[i].setEnabled(on && val >= limit);
+            }
+        }
+    }
 }

@@ -54,6 +54,7 @@ public class Submarine extends SuperDefence {
         jLabel1.setText("Area Not Cleared");
 
         jButton1.setText("Shoot");
+        jButton1.setEnabled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -61,6 +62,7 @@ public class Submarine extends SuperDefence {
         });
 
         jButton3.setText("Trident-2 Missile");
+        jButton3.setEnabled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -75,6 +77,7 @@ public class Submarine extends SuperDefence {
         jSlider1.setValue(100);
 
         jButton4.setText("Tomahawk Missile");
+        jButton4.setEnabled(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -106,6 +109,7 @@ public class Submarine extends SuperDefence {
         jScrollPane2.setViewportView(jTextArea2);
 
         jButton5.setText("Missile Operation");
+        jButton5.setEnabled(false);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -206,8 +210,8 @@ public class Submarine extends SuperDefence {
                 .addGap(25, 25, 25))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -311,5 +315,10 @@ public class Submarine extends SuperDefence {
     @Override
     public void update(String msg) {
         jTextArea2.append("Main_C: " + msg + "\n");
+    }
+    @Override
+    public void setSliderValue(int value) {
+        javax.swing.JButton[] subBtns = {jButton1, jButton5, jButton4, jButton3};
+        updateButtons(subBtns, jCheckBox1.isSelected(), value);
     }
 }

@@ -61,6 +61,7 @@ public class Helicopter extends SuperDefence {
         jSlider1.setValue(100);
 
         jButton6.setText("Laser Operation");
+        jButton6.setEnabled(false);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -68,6 +69,7 @@ public class Helicopter extends SuperDefence {
         });
 
         jButton7.setText("Shoot");
+        jButton7.setEnabled(false);
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -75,6 +77,7 @@ public class Helicopter extends SuperDefence {
         });
 
         jButton9.setText("Missile Operation");
+        jButton9.setEnabled(false);
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -262,5 +265,10 @@ public class Helicopter extends SuperDefence {
     @Override
     public void update(String msg) {
         jTextArea2.append("Main_C: " + msg + "\n");
+    }
+    @Override
+    public void setSliderValue(int value) {
+        javax.swing.JButton[] heliBtns = {jButton7, jButton9, jButton6};
+        updateButtons(heliBtns, jCheckBox1.isSelected(), value);
     }
 }
