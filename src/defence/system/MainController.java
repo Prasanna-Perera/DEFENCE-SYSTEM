@@ -82,6 +82,11 @@ public class MainController extends javax.swing.JFrame {
         jCheckBox1.setText("Send Private");
 
         jCheckBox2.setText("Area Clear");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Defence", "Helicopter", "Tank", "Submarine" }));
         jComboBox1.setToolTipText("");
@@ -248,6 +253,13 @@ public class MainController extends javax.swing.JFrame {
             observer.sendSliderValue(val);
         }
     }//GEN-LAST:event_jSlider1StateChanged
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        if (observer != null) {
+            boolean isClear = jCheckBox2.isSelected();
+            observer.sendAreaClear(isClear);
+        }
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     /**
      * @param args the command line arguments

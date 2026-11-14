@@ -54,5 +54,11 @@ public void add(Observable o) {
             defence.setSliderValue(val);
         }
     }
+    public void sendAreaClear(boolean isClear) {
+        for (int i = 0; i < txt.length; i++) {
+            SuperDefence defence = (SuperDefence) txt[i];
+            defence.setAreaClear(isClear);
+        }
+    }
 }
 

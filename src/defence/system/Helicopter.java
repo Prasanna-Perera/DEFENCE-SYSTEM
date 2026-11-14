@@ -271,4 +271,8 @@ public class Helicopter extends SuperDefence {
         javax.swing.JButton[] heliBtns = {jButton7, jButton9, jButton6};
         updateButtons(heliBtns, jCheckBox1.isSelected(), value);
     }
+    @Override
+    public void setAreaClear(boolean isClear) {
+        updateAreaClearStatus(jLabel1, isClear);
+    }
 }

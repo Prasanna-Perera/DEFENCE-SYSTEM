@@ -289,4 +289,8 @@ public class Tank extends SuperDefence {
         javax.swing.JButton[] tankBtns = {jButton1, jButton5, jButton4, jButton3};
         updateButtons(tankBtns, jCheckBox1.isSelected(), value);
     }
+    @Override
+    public void setAreaClear(boolean isClear) {
+        updateAreaClearStatus(jLabel1, isClear);
+    }
 }

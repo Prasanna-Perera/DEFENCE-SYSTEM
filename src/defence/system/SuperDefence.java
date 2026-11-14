@@ -29,4 +29,17 @@ public abstract class SuperDefence extends javax.swing.JFrame implements Observa
             }
         }
     }
+    public void updateAreaClearStatus(javax.swing.JLabel label, boolean isClear) {
+        if (label != null) {
+            if (isClear) {
+                label.setText("Area Cleared");
+            } else {
+                label.setText("Area Not Cleared");
+            }
+        }
+    }
+
+    public void setAreaClear(boolean clear) {
+    }
+    
 }

@@ -321,4 +321,8 @@ public class Submarine extends SuperDefence {
         javax.swing.JButton[] subBtns = {jButton1, jButton5, jButton4, jButton3};
         updateButtons(subBtns, jCheckBox1.isSelected(), value);
     }
+    @Override
+    public void setAreaClear(boolean isClear) {
+        updateAreaClearStatus(jLabel1, isClear);
+    }
 }
