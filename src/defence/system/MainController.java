@@ -236,7 +236,12 @@ public class MainController extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        String selectedUnit = jComboBox1.getSelectedItem().toString();
+        if (!selectedUnit.equals("Select Defence") && observer != null) {
+            observer.requestInfo(selectedUnit);
+        } else {
+            jTextArea1.append("Please select a valid defense unit first!\n");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -321,5 +326,11 @@ public class MainController extends javax.swing.JFrame {
         jTextArea1.append(me + ": " + msg + "\n");
     }
 
-
+    void displayUnitInfo(String unitName, int soldiers, int ammo, boolean isPositionOn) {
+        jLabel2.setText("Soldier Count: " + soldiers);
+        jLabel3.setText("Ammo Amount: " + ammo);
+        String status = isPositionOn ? "ON" : "OFF";
+        jLabel4.setText("Position: " + status);
+        
+    }
 }

@@ -38,8 +38,8 @@ public abstract class SuperDefence extends javax.swing.JFrame implements Observa
             }
         }
     }
-
     public void setAreaClear(boolean clear) {
     }
-    
+    public void sendInfo() {
+    }
 }

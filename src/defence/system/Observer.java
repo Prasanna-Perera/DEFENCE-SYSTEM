@@ -60,5 +60,21 @@ public void add(Observable o) {
             defence.setAreaClear(isClear);
         }
     }
+    public void requestInfo(String unitName) {
+        for (int i = 0; i < txt.length; i++) {
+            String className = txt[i].getClass().getSimpleName();
+            if (className.equalsIgnoreCase(unitName)) {
+                SuperDefence defence = (SuperDefence) txt[i];
+                defence.sendInfo();
+            }
+        }
+    }
+    public void updateMainInfo(String unitName, int soldiers, int ammo, boolean isPositionOn) {
+        if (main_c != null) {
+            main_c.displayUnitInfo(unitName, soldiers, ammo, isPositionOn);
+        }
+    }
+
+
 }
 

@@ -141,10 +141,10 @@ public class Tank extends SuperDefence {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(27, 27, 27)
+                                        .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -285,12 +285,20 @@ public class Tank extends SuperDefence {
     }
     @Override
     public void setSliderValue(int value) {
-        // පිළිවෙළ: [උඩ වම්, උඩ දකුණු, යට වම්, යට දකුණු]
         javax.swing.JButton[] tankBtns = {jButton1, jButton5, jButton4, jButton3};
         updateButtons(tankBtns, jCheckBox1.isSelected(), value);
     }
     @Override
     public void setAreaClear(boolean isClear) {
         updateAreaClearStatus(jLabel1, isClear);
+    }
+    @Override
+    public void sendInfo() {
+        if (getObserver() != null) {
+            int soldiers = (Integer) jSpinner2.getValue();
+            int ammo = (Integer) jSpinner1.getValue();
+             boolean positioOn = jCheckBox1.isSelected();
+            getObserver().updateMainInfo("Tank", soldiers, ammo, positioOn);
+        }
     }
 }
