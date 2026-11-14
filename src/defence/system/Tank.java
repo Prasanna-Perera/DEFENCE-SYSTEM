@@ -297,7 +297,7 @@ public class Tank extends SuperDefence {
         if (getObserver() != null) {
             int soldiers = (Integer) jSpinner2.getValue();
             int ammo = (Integer) jSpinner1.getValue();
-             boolean positioOn = jCheckBox1.isSelected();
+            boolean positioOn = jCheckBox1.isSelected();
             getObserver().updateMainInfo("Tank", soldiers, ammo, positioOn);
         }
     }

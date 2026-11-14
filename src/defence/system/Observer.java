@@ -17,8 +17,8 @@ public class Observer {
         this.main_c = mc;
     }
 
-public void add(Observable o) {
-       Observable[] newTxt = new Observable[txt.length + 1];
+    public void add(Observable o) {
+        Observable[] newTxt = new Observable[txt.length + 1];
         for (int i = 0; i < txt.length; i++) {
             newTxt[i] = txt[i];
         }
@@ -74,7 +74,7 @@ public void add(Observable o) {
             main_c.displayUnitInfo(unitName, soldiers, ammo, isPositionOn);
         }
     }
-
+    
 
 }
 

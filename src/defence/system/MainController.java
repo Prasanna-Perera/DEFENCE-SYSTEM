@@ -330,7 +330,6 @@ public class MainController extends javax.swing.JFrame {
         jLabel2.setText("Soldier Count: " + soldiers);
         jLabel3.setText("Ammo Amount: " + ammo);
         String status = isPositionOn ? "ON" : "OFF";
-        jLabel4.setText("Position: " + status);
-        
+        jLabel4.setText("Position: " + status); 
     }
 }
